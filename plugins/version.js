@@ -10,7 +10,7 @@ let version = {
         let text = message.content.text.text
 
         if (this.regex.exec(text)) {
-            return tg.sendMessage(message.chat_id, `🔰 <b>${APP.nama}</b>\n💠 ${tg.name} <code>v${tg.versi}</code>\n🛄 Fw <code>${APP.versi}</code>\n\n${APP.keterangan}\n\n♿️ Diskusi dan support via ${APP.support}\n📚 Repo ${APP.url}`, 'HTML')
+            return tg.sendMessage(message.chat_id, `🔰 <b>${APP.nama}</b>\n💠 ${tg.name} <code>v${tg.versi}</code>\n🛄 Fw <code>${APP.versi}</code>\n\n${APP.keterangan}\n\n⛑️ support: ${APP.support}\n📚 repo ${APP.url}`, 'HTML')
         }
     }
 }
