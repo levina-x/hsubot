@@ -1,4 +1,4 @@
-## HSUbot
+## HSUBOT
 
 Proyek experimental (percobaan) untuk membuat bot menggunakan TDLib yang merupakan wrapper untuk protokol MTProto Telegram
 
@@ -72,7 +72,7 @@ Ekstrak dan dapatkan file `libtdjni.so` pada folder `./libtd/src/main/libs/` ses
 
 Library (helper) ditulis dari awal (from scratch) dan belum selesai.
 
-Tidak hanya library, namun diberikan sample implementasi bot. Ini adalah framewrok bot TD Lib.
+Tidak hanya library, namun diberikan sample implementasi bot. Ini adalah framework bot TD Lib.
 
 ## Fitur
 
@@ -99,13 +99,9 @@ Tekan tombol dibawah ini dan buat app heroku baru, **lalu isi variable variable 
 
 > Mohon tidak untuk spamming, abuse, aksi ilegai lainnya. TERIMAKASIH!
 
-Catatan tentang [Heroku](https://github.com/banghasan/hsubot/blob/main/doc/heroku.md)
-
-Mohon kabari kalau sudah bisa jalan userbot di situ ^^
-
 ## Kontribusi
 
-Dipersilakan.
+Dipersilakan untuk berkontribusi
 
 ## Support
 
