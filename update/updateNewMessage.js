@@ -14,7 +14,7 @@ var userbot_id = false
 if (BOT_TOKEN) {
     let split = BOT_TOKEN.split(':')
     if (split.length < 2) {
-        console.log('❌ TOKEN BOT Keliru!')
+        console.log('❎ token bot salah')
         process.exit(1)
     }
     userbot_id = split[0]
@@ -23,7 +23,7 @@ if (BOT_TOKEN) {
 module.exports = function (tg, update) {
     if (SKIPME) {
         if (!userbot_id) {
-            if (DEBUG_LEVEL > 0) console.log('🔖 FYI, userbot_id belum dapet - tidak perlu khawatir.')
+            if (DEBUG_LEVEL > 0) console.log('🔖 FYI, userbot_id belum dapat - tidak perlu khawatir.')
             tg.getMe().then(result => userbot_id = result.id)
         }
     }
@@ -38,7 +38,7 @@ module.exports = function (tg, update) {
     if (ADMIN_ID)
         if (!Util.punyaAkses(ADMIN_ID, message.sender.user_id)) {
             if (DEBUG_LEVEL > 0) {
-                if (DEBUG_LEVEL > 0) console.log('❌ Dia tidak ada akses', message.sender.user_id)
+                if (DEBUG_LEVEL > 0) console.log('❎ dia tidak memiliki akses', message.sender.user_id)
             }
             return false
         }
@@ -60,12 +60,12 @@ module.exports = function (tg, update) {
         let result = plugin.run(tg, update)
         if (result) {
             ketemu = true
-            if (DEBUG_LEVEL > 0) console.log('-> 🥅 Terdeteksi:', { name: plugin.name, regex: plugin.regex })
+            if (DEBUG_LEVEL > 0) console.log('-> 🔎 Terdeteksi:', { name: plugin.name, regex: plugin.regex })
         }
     })
 
     // modul helper
-    if (!ketemu)
+    if (!ditemukan)
         Util.forEach(helper, help => help.run(tg, update, plugins))
 
 }
