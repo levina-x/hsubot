@@ -24,7 +24,7 @@ let pong = {
 
         if (this.regex.exec(text)) {  
             tg.sendChatAction(message.chat_id)          
-            return tg.sendMessage(message.chat_id, '🐧 <b>Ping..uin!</b>', 'html', false, false, false, message.id)
+            return tg.sendMessage(message.chat_id, '🐧 <b>ping..uin!</b>', 'html', false, false, false, message.id)
                 .catch(e => console.log(e))
         }
     }
