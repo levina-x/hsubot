@@ -92,10 +92,10 @@ Tekan tombol dibawah ini dan buat app heroku baru, **lalu isi variable variable 
 <!-- Hyooooooo!!! mau diapain :D 		RESIKO DITANGGUNG SENDIRI YA, JANGAN BUAT SPAM, ABUSE, ILEGAL. OK???-->
 <a href="https://heroku.com/deploy?template=https://github.com/Aghisna12/hsubot/tree/main">![Heroku Logo](https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku)</a>
 
-**Setelah berhasil deploy silakan aktifkan worker pada tab Resource**
+##### Setelah berhasil deploy silakan aktifkan worker pada tab Resource
 ![Worker](https://raw.githubusercontent.com/Aghisna12/hsubot/main/data/worker.jpg)
-**Contoh auth di botnya. gunakan command "/start" untuk memulai**
-![BotAuth](https://raw.githubusercontent.com/Aghisna12/hsubot/main/data/botauth.jpg)
+##### Contoh auth di botnya. gunakan command "/start" untuk memulai
+![BotAuth](https://raw.githubusercontent.com/Aghisna12/hsubot/main/data/authbot.jpg)
 
 > Mohon tidak untuk spamming, abuse, aksi ilegai lainnya. TERIMAKASIH!
 
