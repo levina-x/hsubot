@@ -9,7 +9,7 @@ let pin = {
         let text = message.content.text.text
 
         if (this.regex.exec(text)) {
-            if (!message.reply_to_message_id) return tg.sendMessage(message.chat_id, '🤷🏽‍♂️ Silakan reply pesan yang akan dipin.', 'html', false, false, false, message.id)
+            if (!message.reply_to_message_id) return tg.sendMessage(message.chat_id, '💁🏻 Silahkan reply pesan yang ingin di pin.', 'html', false, false, false, message.id)
             return tg.pinChatMessage(message.chat_id, message.reply_to_message_id).catch(e => console.log(e))
         }
     }
@@ -26,7 +26,7 @@ let unpin = {
 
         if (this.regex.exec(text)) {
             if (!message.reply_to_message_id)
-                return tg.sendMessage(message.chat_id, '❌ Reply pesan yang akan di unpin.', 'html', false, false, false, message.id)
+                return tg.sendMessage(message.chat_id, '❎ Reply pesan yang akan di unpin.', 'html', false, false, false, message.id)
             return tg.unpinChatMessage(message.chat_id, message.reply_to_message_id)
         }
     }
