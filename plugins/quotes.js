@@ -24,7 +24,7 @@ let quotes = {
                 if (res.status == 200) {
                     pesan = `${res.quotes} (${res.author})`
                 } else {
-                    pesan = 'Terjadi kesalahan internal.'
+                    pesan = 'terjadi kesalahan internal.'
                 }
                 tg.sendMessage(message.chat_id, pesan)
             })
