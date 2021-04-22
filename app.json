@@ -7,41 +7,31 @@
   ],
   "repository": "https://github.com/banghasan/hsubot",
   "env": {
-    "api_id": {
+    "API_ID": {
       "description": "Dapatkan dari my.telegram.org.",
       "required": true
     },
-    "api_hash": {
+    "API_HASH": {
       "description": "Dapatkan dari my.telegram.org.",
       "required": true
     },
-    "bot_token": {
-      "description": "Token bot dari bot father (Jika menggunakan bot api bot_token wajib diisi).",
+    "BOT_TOKEN": {
+      "description": "Token bot dari bot father.",
+      "required": true
+    },
+    "ADMIN_ID": {
+      "description": "Id akun telegram user sebagai admin.",
+      "required": true
+    },
+    "DEBUG_LEVEL": {
+      "description": "Debug Log: 0 minimalis, 1 event only, 2 detail, 3 semua termasuk object dan fungsi",
+      "value": "0",
       "required": false
     },
-    "bot_api": {
-      "description": "Jika anda ingin menggunakan bot api variable diisi true.",
-      "value": "false",
-      "required": false
+    "AMANAH": {
+      "description": "SAYA BERJANJI TIDAK UNTUK SPAMMING, ABUSING, DAN AKSI ILLEGAL LAINNYA. (YES/NO)",
+      "required": true
     },
-    "debug_mode": {
-      "description": "Jika ingin mengaktifkan mode debug isi variable ini true.",
-      "value": "false",
-      "required": false
-    },
-    "debug_level": {
-      "description": "Lebih jelas di sample_config.js.",
-      "required": false
-    },
-    "admin_mode": {
-      "description": "Jika ingin bot hanya bisa digunakan admin isi variable ini true.",
-      "value": "true",
-      "required": false
-    },
-    "admin_id": {
-      "description": "Jika admin mode true maka var ini diisi dengan id kamu.",
-      "required": false
-    }
   },
   "buildpacks": [
     {

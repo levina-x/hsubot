@@ -1,15 +1,25 @@
 const { Util } = require('./util');
 require('console-stamp')(console, 'HH:MM:ss.l');
-const CONFIG = require('../config.js');
 
-let debug = CONFIG.debug
+const DEBUG_LEVEL = process.env.DEBUG_LEVEL || 0
+const PLUGINS = {
+    bash: true,
+    debugJSON: false, parseMode: false,
+    foto: true, dokumen: true, video: true, audio: true, voice: true, sticker: true,
+    getMe: true, invoke: false,
+    pin: true, unpin: true, ping: true, pong: true,
+    quotes: true, wikipedia: true,
+    uploadFoto: true, uploadDokumen: true, uploadVideo: true,
+    uploadAudio: true, uploadVoice: true, uploadSticker: true,
+    getUser: false
+}
 
 let folder = "../plugins/"
 let pathPlugins = require("path").join(__dirname, folder);
 
 let plugins = []
 
-if (debug.active) {
+if (DEBUG_LEVEL > 0) {
     console.log('🔎 Pengecekkan file plugins')
     console.log('     '.padEnd(25, '-'))
 }
@@ -26,20 +36,20 @@ require("fs").readdirSync(pathPlugins).forEach(file => {
             process.exit(1)
         }
 
-        if (CONFIG.plugins) {
-            if (CONFIG.plugins.hasOwnProperty(plugin.name))
-                plugin.status = CONFIG.plugins[plugin.name]
+        if (PLUGINS) {
+            if (PLUGINS.hasOwnProperty(plugin.name))
+                plugin.status = PLUGINS[plugin.name]
         }
 
-        listName = CONFIG.debug.level > 1 ? `[${plugin.status ? 'v' : 'x'}] ${plugin.name}` : plugin.name
+        listName = DEBUG_LEVEL > 0 ? `[${plugin.status ? 'v' : 'x'}] ${plugin.name}` : plugin.name
         list.push(listName)
         plugins.push(plugin)
     })
     pesan += list.join(', ') + `... ✔️`
-    if (debug.active) console.log(' 🔖 ', pesan)
+    if (DEBUG_LEVEL > 0) console.log(' 🔖 ', pesan)
 });
 
-if (debug.active) {
+if (DEBUG_LEVEL > 0) {
     console.log('     '.padEnd(25, '-'))
     console.log(`✅ Pengecekkan plugins selesai, total ${i} fungsi.\n`)
 }

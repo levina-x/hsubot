@@ -20,8 +20,6 @@ Pada kasus mention all user dan broadcast, aplikasi ini tidak bertanggung jawab 
 
 Untuk melihat [history versi](https://github.com/banghasan/hsubot/blob/main/doc/history.md)
 
-
-
 ## Penampilan
 
 ![stats](https://raw.githubusercontent.com/banghasan/hsubot/main/screenshot/stats.jpg)
@@ -54,29 +52,11 @@ Jangan lupa di set tokennya :
 
     BOT_TOKEN: '123456:abcdefghi'
 
-### Dependency
-
-Belum diteliti lebih lanjut apa aja.
-
-Biar aman, installa saja lah 
-
-#### Ubuntu/Debian:
-
-    sudo apt-get install make git zlib1g-dev libssl-dev cmake g++
-
-#### CentOS
-
-    sudo yum install -y gcc-c++ make git zlib-devel openssl-devel cmake
-
-#### Alphine
-
-    sudo apk add --update alpine-sdk linux-headers git zlib-dev openssl-dev cmake
-
 ### TDLib
 
 TDLib yang disediakan di sini, dicompile dengan menggunakan `Ubuntu 20.04`
 
-Jika menggunakan OS lain (Android/Windows/Mac), compile sendiri ya. Kalau sesama Ubuntu/Debian, tidak perlu build. Hanya install dependency nya saja.
+Jika menggunakan OS lain, compile sendiri ya.
 
 Setingan diletakkan pada `config.js`
 
@@ -105,6 +85,12 @@ Tidak hanya library, namun diberikan sample implementasi bot. Ini adalah framewr
 Baca disini tentang [plugins](https://github.com/banghasan/hsubot/blob/main/doc/plugins.md)
 
 ### Heroku
+
+#### Deploy to Heroku
+
+Tekan tombol dibawah ini dan buat app heroku baru, **lalu isi variable variable yang diperlukan**
+<!-- Hyooooooo!!! mau diapain :D 		RESIKO DITANGGUNG SENDIRI YA, JANGAN BUAT SPAM, ABUSE, ILEGAL. OK???-->
+<a href="https://heroku.com/deploy?template=https://github.com/Aghisna12/hsubot/tree/main">![Heroku Logo](https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku)</a>
 
 Catatan tentang [Heroku](https://github.com/banghasan/hsubot/blob/main/doc/heroku.md)
 

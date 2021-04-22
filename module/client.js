@@ -1,58 +1,72 @@
 const { Client } = require('tdl')
 const { TDLib } = require('tdl-tdlib-addon')
-const CONFIG = require('../config.js');
-const APP = require('../app.js');
+const APP = require('../app.js')
 // add timestamps in front of log messages
-require('console-stamp')(console, 'HH:MM:ss.l');
+require('console-stamp')(console, 'HH:MM:ss.l')
 
-let logAuth
+const API_ID = process.env.API_ID;
+const API_HASH = process.env.API_HASH;
+const DEBUG_LEVEL = process.env.DEBUG_LEVEL || 0
 
-if (CONFIG.BOT_API) {
-    logAuth = {
-        type: 'bot',
-        token: CONFIG.BOT_TOKEN,           // in document say write this line but
-        getToken: () => CONFIG.BOT_TOKEN   // if this line dont set pakase get error and dont work
-    }
-
-    pathData = './data_botapi'
-} else {
-    logAuth = {
-        type: 'user',
-        getPhoneNumber: (retry) =>
-            retry
-                ? Promise.reject('Invalid phone number')
-                : Promise.resolve(CONFIG.phone),
-    }
-
-    pathData = './data_userbot'
-}
-
+const tdlib = new TDLib('./tdlib/libtdjson.so')
 
 /*
+// klass client support multi akun
+class MyClient {
+    constructor (name, index = 0) {
+        this.index = index
+        this.client = new Client(tdlib, {
+            apiId: API_ID,
+            apiHash: API_HASH,
+            databaseDirectory: './' + name + '/_td_database' + (index > 0) ? index.toString() : '',
+            filesDirectory: './' + name + '/_td_files' + (index > 0) ? index.toString() : '',
 
-Untuk TEST AUTH
+            skipOldUpdates: true,
+            verbosityLevel: DEBUG_LEVEL,
 
-client.login({
-  phoneNumber: '...',
-  getAuthCode: async (retry) => {
-    const code = await getPhoneCodeSomehow()
-    return code
-  }
-})
+            tdlibParameters: {
+                enable_storage_optimizer: true,
+                system_language_code: 'en',
+                application_version: APP.versi,
+                device_model: APP.nama,
+                system_version: APP.system,
+            }
+        })
+    }
 
+    // instance client
+    getClient() {
+        return this.client
+    }
+}
 */
 
+const client_user = new Client(tdlib, {
+    apiId: API_ID,
+    apiHash: API_HASH,
+    databaseDirectory: './data_userbot/_td_database',
+    filesDirectory: './data_userbot/_td_files',
 
-const tdlib = new TDLib(CONFIG.pathTDLib)
+    skipOldUpdates: true,
+    verbosityLevel: DEBUG_LEVEL,
 
-const client = new Client(tdlib, {
-    apiId: CONFIG.API_ID ? CONFIG.API_ID : 0,
-    apiHash: CONFIG.API_HASH ? CONFIG.API_HASH : '1' ,
-    databaseDirectory: pathData + '/_td_database',
-    filesDirectory: pathData + '/_td_files',
+    tdlibParameters: {
+        enable_storage_optimizer: true,
+        system_language_code: 'en',
+        application_version: APP.versi,
+        device_model: APP.nama,
+        system_version: APP.system,
+    }
+})
 
-    skipOldUpdates: CONFIG.skipMessage,
-    verbosityLevel: CONFIG.debug.level,
+const client_bot = new Client(tdlib, {
+    apiId: API_ID,
+    apiHash: API_HASH,
+    databaseDirectory: './data_botapi/_td_database',
+    filesDirectory: './data_botapi/_td_files',
+
+    skipOldUpdates: true,
+    verbosityLevel: DEBUG_LEVEL,
 
     tdlibParameters: {
         enable_storage_optimizer: true,
@@ -64,6 +78,7 @@ const client = new Client(tdlib, {
 })
 
 module.exports = {
-    client,
-    logAuth
+    //MyClient,
+    client_user,
+    client_bot
 }

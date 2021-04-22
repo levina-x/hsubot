@@ -1,6 +1,7 @@
 const { Util } = require('../module/util');
-const { debug } = require('../config.js');
 // require('console-stamp')(console, 'HH:MM:ss.l');
+
+const DEBUG_LEVEL = process.env.DEBUG_LEVEL || 0
 
 let help = {
     name: 'helper',
@@ -13,7 +14,7 @@ let help = {
 
         let ketemu = false
 
-        if (debug.active && debug.level > 1) console.log('♿️ Helper aktif..')
+        if (DEBUG_LEVEL > 0) console.log('♿️ Helper aktif..')
 
         if (cocok = this.regex.exec(text)) {
             plugins.forEach(plugin => {
@@ -45,7 +46,7 @@ let list = {
         let message = update.message
         let text = message.content.text.text
 
-        if (debug.active && debug.level > 1) console.log('♿️ Helper aktif..')
+        if (DEBUG_LEVEL > 0) console.log('♿️ Helper aktif..')
 
         if (this.regex.exec(text)) {
             let pesan = 'Format: <code>.help [command]</code>'

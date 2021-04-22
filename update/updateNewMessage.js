@@ -1,24 +1,44 @@
-const CONFIG = require('../config.js');
 const { plugins } = require('../module/plugins');
 const helper = require('../module/helper');
 const { Util } = require('../module/util');
 const APP = require('../app.js');
 require('console-stamp')(console, 'HH:MM:ss.l');
 
-module.exports = function (tg, update) {
-    let message = update.message
+const DEBUG_LEVEL = process.env.DEBUG_LEVEL || 0
+const ADMIN_ID = process.env.ADMIN_ID
+const BOT_TOKEN = process.env.BOT_TOKEN
+const SKIPME = true
 
-    if (CONFIG.skipMe) {
-        if (message.sender.user_id == tg.id) {
-            if (CONFIG.debug.active && CONFIG.debug.level > 1) console.log('👟 skip me')
-            return 1
+var userbot_id = false
+
+if (BOT_TOKEN) {
+    let split = BOT_TOKEN.split(':')
+    if (split.length < 2) {
+        console.log('❌ TOKEN BOT Keliru!')
+        process.exit(1)
+    }
+    userbot_id = split[0]
+}
+
+module.exports = function (tg, update) {
+    if (SKIPME) {
+        if (!userbot_id) {
+            if (DEBUG_LEVEL > 0) console.log('🔖 FYI, userbot_id belum dapet - tidak perlu khawatir.')
+            tg.getMe().then(result => userbot_id = result.id)
         }
     }
 
-    if (CONFIG.admin.active)
-        if (!Util.punyaAkses(CONFIG.admin.id, message.sender.user_id)) {
-            if (CONFIG.debug.active) {
-                if (CONFIG.debug.level > 1) console.log('❌ Dia tidak ada akses', message.sender.user_id)
+    let message = update.message
+
+    if (SKIPME) {
+        if (message.sender.user_id == userbot_id)
+            return (DEBUG_LEVEL > 0) ? console.log('👟 skip me') : true
+    }
+
+    if (ADMIN_ID)
+        if (!Util.punyaAkses(ADMIN_ID, message.sender.user_id)) {
+            if (DEBUG_LEVEL > 0) {
+                if (DEBUG_LEVEL > 0) console.log('❌ Dia tidak ada akses', message.sender.user_id)
             }
             return false
         }
@@ -40,7 +60,7 @@ module.exports = function (tg, update) {
         let result = plugin.run(tg, update)
         if (result) {
             ketemu = true
-            if (CONFIG.debug.active) console.log('-> 🥅 Terdeteksi:', { name: plugin.name, regex: plugin.regex })
+            if (DEBUG_LEVEL > 0) console.log('-> 🥅 Terdeteksi:', { name: plugin.name, regex: plugin.regex })
         }
     })
 
