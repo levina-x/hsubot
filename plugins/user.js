@@ -11,7 +11,7 @@ let getuser = {
             return tg.getUser(cocok[1]).then(result => {
                 let pesan = `🆔 ID: ${result.id}\n\n👤 First Name: ${result.first_name}`
                 if (result.last_name) pesan += '\n👤 Last Name: ' + result.last_name
-                if (result.username) pesan += '\n🔰 Username: @' + result.username
+                if (result.username) pesan += '\n🌐 Username: @' + result.username
                 if (result.phone_number) pesan += '\n☎️ Phone: ' + result.phone_number
                 pesan += "\n"
                 pesan += `\n- contact ${result.is_contact}`
@@ -47,7 +47,7 @@ module.exports = {
         }
     
         if (cocok = /^[!\/\.](searchAll|cariGlobal) (.+)$/i.exec(msg.text)) {
-            // if (BOT_API) return tg.sendMessage(message.chat_id, '❌ Hanya untuk userbot.', 'html', false, false, false, message.id)
+            // if (BOT_API) return tg.sendMessage(message.chat_id, '❎ hanya untuk userbot.', 'html', false, false, false, message.id)
             return tg.searchPublicChats(cocok[2]).then(result => console.log(result))
                 .catch(result => tg.sendMessage(message.chat_id, `<code>${result.message}</code>`, 'html', false, false, false, message.id))
         }
