@@ -28,20 +28,20 @@ let statistik = {
 
                 // jika ingin di simpan ke file
                 // fs.writeFileSync(`../data/${message.chat_id}_.json`, JSON.stringify(result, null, 2));
-                let pesan = "📊 Statistik"
+                let pesan = "📊 statistik"
 
-                pesan += `\n\n🗓 Periode`
+                pesan += `\n\n🗓 periode`
                 pesan += `\n  └ ${dateFormat(dataStats.period.start_date * 1000, 'd mmm \'yy')}`
                 pesan += ` - ${dateFormat(dataStats.period.end_date * 1000, 'd mmm \'yy')}`
 
-                pesan += statFormat(dataStats, '👤 Member', 'member_count')
-                pesan += statFormat(dataStats, '💁🏼 Sender', 'sender_count')
-                pesan += statFormat(dataStats, '💬 Message', 'message_count')
-                pesan += statFormat(dataStats, '👀 Viewer', 'viewer_count')
+                pesan += statFormat(dataStats, '👤 member', 'member_count')
+                pesan += statFormat(dataStats, '💁🏼 sender', 'sender_count')
+                pesan += statFormat(dataStats, '💬 message', 'message_count')
+                pesan += statFormat(dataStats, '👀 viewer', 'viewer_count')
 
                 tg.sendMessage(message.chat_id, pesan, 'html', false, false, false, message.id)
             })
-                .catch(result => tg.sendMessage(message.chat_id, `❌ <code>${result.message}</code>`, 'html', false, false, false, message.id))
+                .catch(result => tg.sendMessage(message.chat_id, `❎ <code>${result.message}</code>`, 'html', false, false, false, message.id))
         }
     }
 }
