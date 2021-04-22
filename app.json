@@ -28,10 +28,10 @@
       "value": "0",
       "required": false
     },
-    "AMANAH": {
+    "PERJANJIAN": {
       "description": "SAYA BERJANJI TIDAK UNTUK SPAMMING, ABUSING, DAN AKSI ILLEGAL LAINNYA. (YES/NO)",
       "required": true
-    },
+    }
   },
   "buildpacks": [
     {

@@ -1,3 +1,7 @@
+/*
+ini planing belum selesai :D
+*/
+
 const app = require('express')();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -9,6 +13,8 @@ app.get('/', (req, res) => {
 	res.send("<h1>Hello World!</h1>");
 });
 
+//endpoin bot-api : yourappname.herokuapp.com/bot<tokem>/methodName
+//endpoin user-api : yourappname.herokuapp.com/user<tokem>/methodName
 app.get('/:token/:method', (req, res) => {
 	console.log(req.params);
 	console.log(req.query);
