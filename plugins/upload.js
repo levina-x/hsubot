@@ -17,7 +17,7 @@ let ufoto = {
             let data = (tipe._ === 'inputFileLocal' && !cocok[1].startsWith('/') ? uPath : '') + cocok[1]
             if (DEBUG_LEVEL) console.log(`📦 [${tipe._}] Uploading`, data, ' ...')
             return tg.sendPhoto(message.chat_id, data)
-                .catch(result => tg.sendMessage(message.chat_id, `❌ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
+                .catch(result => tg.sendMessage(message.chat_id, `❎ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
         }
     }
 }
@@ -38,7 +38,7 @@ let udokumen = {
             let data = (tipe._ === 'inputFileLocal' && !cocok[1].startsWith('/') ? uPath : '') + cocok[1]
             if (DEBUG_LEVEL) console.log(`📦 [${tipe._}] Uploading`, data, ' ...')
             return tg.sendDocument(message.chat_id, data)
-                .catch(result => tg.sendMessage(message.chat_id, `❌ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
+                .catch(result => tg.sendMessage(message.chat_id, `❎ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
         }
     }
 }
@@ -58,7 +58,7 @@ let uvideo = {
             let data = (tipe._ === 'inputFileLocal' && !cocok[1].startsWith('/') ? uPath : '') + cocok[1]
             if (DEBUG_LEVEL) console.log(`📦 [${tipe._}] Uploading`, data, ' ...')
             return tg.sendVideo(message.chat_id, data)
-                .catch(result => tg.sendMessage(message.chat_id, `❌ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
+                .catch(result => tg.sendMessage(message.chat_id, `❎ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
         }
     }
 }
@@ -78,7 +78,7 @@ let uaudio = {
             let data = (tipe._ === 'inputFileLocal' && !cocok[1].startsWith('/') ? uPath : '') + cocok[1]
             if (DEBUG_LEVEL) console.log(`📦 [${tipe._}] Uploading`, data, ' ...')
             return tg.sendAudio(message.chat_id, data)
-                .catch(result => tg.sendMessage(message.chat_id, `❌ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
+                .catch(result => tg.sendMessage(message.chat_id, `❎ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
         }
     }
 }
@@ -98,7 +98,7 @@ let uvoice = {
             let data = (tipe._ === 'inputFileLocal' && !cocok[1].startsWith('/') ? uPath : '') + cocok[1]
             if (DEBUG_LEVEL) console.log(`📦 [${tipe._}] Uploading`, data, ' ...')
             return tg.sendVoice(message.chat_id, data)
-                .catch(result => tg.sendMessage(message.chat_id, `❌ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
+                .catch(result => tg.sendMessage(message.chat_id, `❎ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
         }
     }
 }
@@ -118,7 +118,7 @@ let usticker = {
             let data = (tipe._ === 'inputFileLocal' && !cocok[1].startsWith('/') ? uPath : '') + cocok[1]
             if (DEBUG_LEVEL) console.log(`📦 [${tipe._}] Uploading`, data, ' ...')
             return tg.sendSticker(message.chat_id, data)
-                .catch(result => tg.sendMessage(message.chat_id, `❌ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
+                .catch(result => tg.sendMessage(message.chat_id, `❎ ${cocok[2]}\n<code>${result.message}</code>`, 'html', false, false, false, message.id))
         }
     }
 }
